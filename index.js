@@ -1,10 +1,13 @@
 Vue.component('modal', {
+    props: ['title'],
     template: `
     <div class="modal-mask">
         <div class="modal-wrapper">
         <div class="modal-container">
-            <h3>title</h3>
-            <div>body</div>
+            <h3>{{title}}</h3>
+            <div>
+                <slot name="body"></slot>
+            </div>
             <footer>
             <button v-on:click="cerrarModal">Cerrar</button>
             </footer>
@@ -26,7 +29,8 @@ new Vue({
 
     data(){
         return{
-            showModal: false    
+            showModal: false,
+            title: 'Este es el titulo del modal' 
         }
     },
 

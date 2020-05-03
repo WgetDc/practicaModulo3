@@ -11,7 +11,14 @@
         <!--Comienza Vue-->
         <button v-on:click="toggleModal">Show Modal</button>
         
-        <modal v-on:cerrar-modal="toggleModal" v-show="showModal"></modal>
+        <modal 
+            v-bind:title="title" 
+            v-on:cerrar-modal="toggleModal" 
+            v-show="showModal">
+            <template slot="body">
+                <p>Este es un cuerpo con SLOT</p>
+            </template>            
+        </modal>
 
         <!--Aqui termina Vue-->
     </div>
